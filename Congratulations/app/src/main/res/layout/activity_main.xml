@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context="com.example.android.congratulations.MainActivity">
+
+
+    <EditText
+        android:id="@+id/edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/edit_message"
+        android:layout_margin="8dp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/from_label"
+        android:text="From: "
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/edit_text"
+        android:textSize="20dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginRight="8dp"
+        />
+
+    <EditText
+        android:id="@+id/edit_text_from"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/your_name"
+        android:layout_below="@+id/edit_text"
+        android:layout_toRightOf="@+id/from_label"
+         />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/edit_text_from"
+        android:text="@string/button_send"
+        android:layout_margin="8dp"
+        android:onClick="sendMessage"
+        />
+</RelativeLayout>

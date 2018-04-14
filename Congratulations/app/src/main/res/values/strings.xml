@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Congratulations</string>
+    <string name="islamic">Asalaamualaikum!</string>
+    <string name="button_send">send</string>
+    <string name="edit_message">enter your message</string>
+    <string name="your_name">your name</string>
+</resources>
