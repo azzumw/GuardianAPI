@@ -32,11 +32,12 @@ public class NewsAdapter extends ArrayAdapter<NewsFeed> {
         TextView titleTextView = listView.findViewById(R.id.titleTextView);
         TextView sectionTextView = listView.findViewById(R.id.sectionTextView);
         TextView dateTextView = listView.findViewById(R.id.dateTextView);
+        TextView authorTextView = listView.findViewById(R.id.authorTextview);
 
         titleTextView.setText(currentNewsFeed.getTitle());
         sectionTextView.setText(currentNewsFeed.getSection());
         dateTextView.setText(String.valueOf(currentNewsFeed.getDate()));
-
+        authorTextView.setText(currentNewsFeed.getAuthor());
 
         return listView;
     }

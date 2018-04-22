@@ -27,9 +27,14 @@
             android:id="@+id/sectionTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="2dp"
             tools:text="Section" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/authorTextview"
+            tools:text="Author"
+            android:layout_margin="2dp"/>
 
     </LinearLayout>
 

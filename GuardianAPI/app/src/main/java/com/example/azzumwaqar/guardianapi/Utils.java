@@ -70,7 +70,7 @@ public class Utils {
             JSONObject rootObject = new JSONObject(newsJSON);
             JSONObject response = rootObject.getJSONObject("response");
             JSONArray resultArray = response.getJSONArray("results");
-
+            String author="";
             for(int i=0;i<resultArray.length();i++){
                 JSONObject jsonObject = resultArray.getJSONObject(i);
 
@@ -78,9 +78,22 @@ public class Utils {
                 String section = jsonObject.getString("sectionName");
                 String date = jsonObject.getString("webPublicationDate");
                 String webUrl = jsonObject.getString("webUrl");
+                JSONArray tagsArray = jsonObject.getJSONArray("tags");
+                for(int j=0;j<tagsArray.length();j++){
+                    JSONObject tagsObj = tagsArray.getJSONObject(i);
+                    author = tagsObj.getString("webTitle");
+                }
+
                 int indexOfT = date.indexOf('T');
                 String sub_date = date.substring(0,indexOfT);
-                newsFeeds.add(new NewsFeed(title,section,sub_date,webUrl));
+
+                if (author.length()==0){
+                    newsFeeds.add(new NewsFeed(title,section,sub_date,webUrl));
+                }
+                else{
+                    newsFeeds.add(new NewsFeed(title,section,sub_date,webUrl,author));
+                }
+
             }
         }catch(JSONException e){
             Log.e("Utils", "Problem parsing the newsfeed JSON results", e);

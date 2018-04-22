@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
     private static final int NEWSFEED_LOADER_ID =1;
 
-    private static final String GUARDIAN_API_URL = "http://content.guardianapis.com/search?api-key=bd204a3a-e27d-4f11-93c3-3e392bb3214b";
+    private static final String GUARDIAN_API_URL = "http://content.guardianapis.com/search?&show-tags=contributor&q=debates&api-key=bd204a3a-e27d-4f11-93c3-3e392bb3214b";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,7 +90,6 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
             adapter.addAll(data);
         }
     }
-
 
     @Override
     public void onLoaderReset(Loader loader) {
