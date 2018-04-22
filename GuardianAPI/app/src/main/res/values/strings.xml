@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">GuardianAPI</string>
+    <string name="NoNewsInfo">No News Found</string>
 </resources>

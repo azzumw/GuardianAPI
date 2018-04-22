@@ -9,14 +9,19 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<List<NewsFeed>>{
 
+    private TextView emptyStateTextView;
+    //listview
+    private ListView newsFeedListView;
     //adapter
     private NewsAdapter adapter;
+
     private static final int NEWSFEED_LOADER_ID =1;
 
     private static final String GUARDIAN_API_URL = "http://content.guardianapis.com/search?api-key=bd204a3a-e27d-4f11-93c3-3e392bb3214b";
@@ -26,11 +31,14 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         setContentView(R.layout.activity_main);
 
 
-        ListView newsFeedListView = findViewById(R.id.list);
+        newsFeedListView = findViewById(R.id.list);
+        emptyStateTextView = findViewById(R.id.emptyStateTextView);
 
         adapter = new NewsAdapter(this,new ArrayList<NewsFeed>());
 
         newsFeedListView.setAdapter(adapter);
+
+        newsFeedListView.setEmptyView(emptyStateTextView);
 
         getLoaderManager().initLoader(NEWSFEED_LOADER_ID,null,this);
 
@@ -49,7 +57,10 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     public void onLoadFinished(Loader<List<NewsFeed>> loader, List<NewsFeed> data) {
         adapter.clear();
 
-        if(data!=null && !data.isEmpty()) adapter.addAll(data);
+        emptyStateTextView.setText(R.string.NoNewsInfo);
+        if(data!=null && !data.isEmpty()) {
+            adapter.addAll(data);
+        }
     }
 
 
